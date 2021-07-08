@@ -13,9 +13,17 @@ class BonjourController extends AbstractController
      */
     public function index(): Response
     {
+        if (!empty($_POST['route'])){
+
+            $postName = $_POST['route'];
+
+            return $this->redirect('/salut/'.$postName);
+        }
+
+
         $secret = "les dauphins existent pour de vrai";
 
-        $tableau = ['Michel', 1, 'Paul'];
+        $tableau = ['Michel', 'Pierre', 'Paul'];
 
         $JeSuisUnInt = 2;
 

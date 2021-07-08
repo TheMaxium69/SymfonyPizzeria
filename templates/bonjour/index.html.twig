@@ -10,11 +10,16 @@
     <ul>
         {% for name in leTableau %}
             <li>
-                {{ name }}
+                <a class="btn btn-primary" href="{{ path('salut', { name }) }}">{{ name }}</a>
             </li>
         {% endfor %}
-
-
     </ul>
+
+    <hr>
+
+    <form method="post">
+        <input type="text" name="route" placeholder="votre name">
+        <input type="submit">
+    </form>
 
 {% endblock %}

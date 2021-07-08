@@ -4,13 +4,14 @@
 
 {% block body %}
 
-    <form method="post">
-        <input type="text" name="route" placeholder="votre name">
-        <input type="submit">
-    </form>
-
     <h3>salut, <u>{{ leNom }}</u> </h3>
 
     <a class="btn btn-primary" href="{{ path('bonjour') }}">Retour a bonjour</a>
 
+    <hr>
+
+    <form method="post">
+        <input type="text" name="route" placeholder="votre name">
+        <input type="submit">
+    </form>
 {% endblock %}

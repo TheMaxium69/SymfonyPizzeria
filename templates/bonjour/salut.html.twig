@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BonjourController!{% endblock %}
+
+{% block body %}
+
+    <form method="post">
+        <input type="text" name="route" placeholder="votre name">
+        <input type="submit">
+    </form>
+
+    <h3>salut, <u>{{ leNom }}</u> </h3>
+
+{% endblock %}

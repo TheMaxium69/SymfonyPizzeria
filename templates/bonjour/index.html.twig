@@ -5,7 +5,7 @@
 {% block body %}
     <h1><u>{{ controller_name }}</u></h1>
     <h3> -- Variable Simple</h3>
-    <small>Mon Secret : {{ leSecret }} </small>
+    <small>Mon Secret : {{ leSecret }} </small><br>
     <small>Mon Int : {{ leInt }} </small>
 <hr>
     <h4> -- Premier tableau</h4>
@@ -16,15 +16,26 @@
     <h4> -- Deuxieme tableau</h4>
     <div class="row">
         {% for element in leTableauDetail %}
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ element['name'] }}</h5>
-                            <p class="card-text">C'est un {{ element['type'] }} de {{ element['age'] }} ans</p>
-                            <p class="card-text">Il est de sexe {{ element['genre'] }}</p>
-                            {% set name = element['name'] %}
-                            <a class="btn btn-success" href="{{ path('salutFunction', { name }) }}">Dire salut à {{ element ['name'] }}</a>
-                        </div>
+            {% if element['genre'] == 'male' %}
+                <div class="card" style="width: 18rem; background-color: blue">
+            {% else %}
+                <div class="card" style="width: 18rem; background-color: purple">
+            {% endif %}
+                    <div class="card-body">
+                        {% if element['type'] != 'human' %}
+                            <small style="color: yellow">⚠ PAS HUMAN</small>
+                        {% endif %}
+                        <h5 class="card-title" style="text-decoration: underline">{{ element['name'] }}</h5>
+                        {% if element['age'] <= 17 %}
+                        <p class="card-text">C'est un <i>{{ element['type'] }}</i> <b>MINEUR</b> de <i>{{ element['age'] }}</i> ans</p>
+                        {% else %}
+                            <p class="card-text">C'est un <i>{{ element['type'] }}</i> <b>MAJEUR</b> de <i>{{ element['age'] }}</i> ans</p>
+                        {% endif %}
+                        <p class="card-text">Il est de sexe <i>{{ element['genre'] }}</i></p>
+                        {% set name = element['name'] %}
+                        <a class="btn btn-success" href="{{ path('salutFunction', { name }) }}">Dire salut à {{ element ['name'] }}</a>
                     </div>
+                </div>
         {% endfor %}
     </div>
 

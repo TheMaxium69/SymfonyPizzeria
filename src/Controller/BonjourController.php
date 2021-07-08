@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use PhpParser\Node\Expr\Cast\Object_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,40 +31,40 @@ class BonjourController extends AbstractController
                "name" => "michel",
                "type" => "human",
                 "age" => 63,
-                "genre" => "male 🚹",
+                "genre" => "male",
             ],
             [
                 "name" => "Pierre",
                 "type" => "human",
                 "age" => 10,
-                "genre" => "male 🚹",
+                "genre" => "male",
             ],
             [
                 "name" => "lena",
                 "type" => "human",
                 "age" => 19,
-                "genre" => "female 🚺",
+                "genre" => "female",
             ],
             [
                 "name" => "camille",
                 "type" => "human",
                 "age" => 34,
-                "genre" => "female 🚺",
+                "genre" => "female",
             ],
             [
                 "name" => "tic",
                 "type" => "squirrel",
                 "age" => 12,
-                "genre" => "male 🚹",
+                "genre" => "male",
             ],
             [
                 "name" => "tac",
                 "type" => "squirrel",
                 "age" => 9,
-                "genre" => "female 🚺",
+                "genre" => "female",
             ],
         ];
-
+        
         return $this->render('bonjour/index.html.twig', [
             'controller_name' => 'BonjourController',
             'leSecret' => $secret,

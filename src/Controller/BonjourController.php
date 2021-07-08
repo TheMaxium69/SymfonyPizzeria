@@ -64,7 +64,7 @@ class BonjourController extends AbstractController
                 "genre" => "female",
             ],
         ];
-        
+
         return $this->render('bonjour/index.html.twig', [
             'controller_name' => 'BonjourController',
             'leSecret' => $secret,

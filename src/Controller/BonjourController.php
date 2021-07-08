@@ -9,12 +9,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class BonjourController extends AbstractController
 {
     /**
-     * @Route("/bonjour", name="bonjour")
+     * @Route("/bonjour/michel", name="bonjour")
      */
     public function index(): Response
     {
+        $secret = "les dauphins existent pour de vrai";
+
+        $tableau = ['Michel', 'Pierre', 'Paul'];
+
         return $this->render('bonjour/index.html.twig', [
             'controller_name' => 'BonjourController',
+            'leSecret' => $secret,
+            'leTableau' => $tableau
         ]);
     }
 }

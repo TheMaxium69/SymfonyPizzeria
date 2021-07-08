@@ -23,17 +23,28 @@
             {% endif %}
                     <div class="card-body">
                         {% if element['type'] != 'human' %}
-                            <small style="color: yellow">⚠ PAS HUMAN</small>
+                            <span class="badge bg-warning">⚠ PAS HUMAN</span>
+                        {% else %}
+                            <span class="badge bg-danger">HUMAN</span>
+                        {% endif %}
+                        {% if element['age'] <= 17 %}
+                            <span class="badge bg-success">👶 MINEUR</span>
+                        {% else %}
+                            <span class="badge bg-dark">MAJEUR</span>
                         {% endif %}
                         <h5 class="card-title" style="text-decoration: underline">{{ element['name'] }}</h5>
-                        {% if element['age'] <= 17 %}
-                        <p class="card-text">C'est un <i>{{ element['type'] }}</i> <b>MINEUR</b> de <i>{{ element['age'] }}</i> ans</p>
-                        {% else %}
-                            <p class="card-text">C'est un <i>{{ element['type'] }}</i> <b>MAJEUR</b> de <i>{{ element['age'] }}</i> ans</p>
+                        {% if element['type'] == 'human' %}
+                            <p class="card-text">C'est un <i>Humain</i> de <i>{{ element['age'] }}</i> ans</p>
+                        {% elseif element['type'] == 'squirrel'%}
+                            <p class="card-text">C'est un <i>écureuil</i> de <i>{{ element['age'] }}</i> ans</p>
                         {% endif %}
-                        <p class="card-text">Il est de sexe <i>{{ element['genre'] }}</i></p>
+                        {% if element['genre'] == 'male' %}
+                            <p class="card-text">Il s'agit d'un <i>Homme</i></p>
+                        {% else %}
+                            <p class="card-text">Il s'agit d'une <i>Femelle</i></p>
+                        {% endif %}
                         {% set name = element['name'] %}
-                        <a class="btn btn-success" href="{{ path('salutFunction', { name }) }}">Dire salut à {{ element ['name'] }}</a>
+                        <a class="btn btn-outline-dark" href="{{ path('salutFunction', { name }) }}">Dire salut à {{ element ['name'] }}</a>
                     </div>
                 </div>
         {% endfor %}

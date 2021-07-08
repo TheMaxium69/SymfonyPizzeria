@@ -34,7 +34,7 @@ class BonjourController extends AbstractController
                 "genre" => "male",
             ],
             [
-                "name" => "Pierre",
+                "name" => "pierre",
                 "type" => "human",
                 "age" => 10,
                 "genre" => "male",

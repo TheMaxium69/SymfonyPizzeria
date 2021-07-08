@@ -9,17 +9,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class BonjourController extends AbstractController
 {
     /**
-     * @Route("/bonjour", name="bonjour")
+     * @Route("/bonjour", name="bonjourFunction")
      */
     public function index(): Response
     {
         if (!empty($_POST['route'])){
-
             $postName = $_POST['route'];
 
             return $this->redirect('/salut/'.$postName);
         }
-
 
         $secret = "les dauphins existent pour de vrai";
 
@@ -36,7 +34,7 @@ class BonjourController extends AbstractController
     }
 
     /**
-     * @Route("/salut/{name}", name="salut")
+     * @Route("/salut/{name}", name="salutFunction")
      */
     public function salut(string $name = "default"): Response
     {
@@ -47,8 +45,6 @@ class BonjourController extends AbstractController
 
             return $this->redirect('/salut/'.$postName);
         }
-
-
 
         return $this->render('bonjour/salut.html.twig', [
             'controller_name' => 'je suis la page salut',

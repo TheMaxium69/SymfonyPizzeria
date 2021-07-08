@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BonjourController!{% endblock %}
+{% block title %}Function index{% endblock %}
 
 {% block body %}
 
@@ -10,7 +10,7 @@
     <ul>
         {% for name in leTableau %}
             <li>
-                <a class="btn btn-primary" href="{{ path('salut', { name }) }}">{{ name }}</a>
+                <a class="btn btn-primary" href="{{ path('salutFunction', { name }) }}">{{ name }}</a>
             </li>
         {% endfor %}
     </ul>

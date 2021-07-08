@@ -3,20 +3,34 @@
 {% block title %}Function index{% endblock %}
 
 {% block body %}
-
-    <h3>Mon Secret : {{ leSecret }} </h3>
-    <h3>Mon Int : {{ leInt }} </h3>
-
-    <ul>
+    <h1><u>{{ controller_name }}</u></h1>
+    <h3> -- Variable Simple</h3>
+    <small>Mon Secret : {{ leSecret }} </small>
+    <small>Mon Int : {{ leInt }} </small>
+<hr>
+    <h4> -- Premier tableau</h4>
         {% for name in leTableau %}
-            <li>
-                <a class="btn btn-primary" href="{{ path('salutFunction', { name }) }}">{{ name }}</a>
-            </li>
+                <a class="btn btn-danger" href="{{ path('salutFunction', { name }) }}">{{ name }}</a>
         {% endfor %}
-    </ul>
+<hr>
+    <h4> -- Deuxieme tableau</h4>
+    <div class="row">
+        {% for element in leTableauDetail %}
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ element['name'] }}</h5>
+                            <p class="card-text">C'est un {{ element['type'] }} de {{ element['age'] }} ans</p>
+                            <p class="card-text">Il est de sexe {{ element['genre'] }}</p>
+                            {% set name = element['name'] %}
+                            <a class="btn btn-success" href="{{ path('salutFunction', { name }) }}">Dire salut à {{ element ['name'] }}</a>
+                        </div>
+                    </div>
+        {% endfor %}
+    </div>
 
     <hr>
 
+    <h4> -- Salut personnaliser</h4>
     <form method="post">
         <input type="text" name="route" placeholder="votre name">
         <input type="submit">
